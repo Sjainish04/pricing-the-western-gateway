@@ -13,6 +13,12 @@
  */
 import { useEffect, useRef, useState } from 'react'
 
+// Leaflet's stylesheet, from the package already in dependencies. This used to
+// be a <link> to unpkg in index.html, which made a map that needs no API key
+// depend on a third party staying up, and loaded on every page rather than the
+// two that render a map. Bundled here, it rides Map2D's lazy chunk.
+import 'leaflet/dist/leaflet.css'
+
 const BANDS = [
   { max: 0.60, color: '#1baf7a', label: 'Free flowing (v/c < 0.60)' },
   { max: 0.75, color: '#86b6ef', label: 'Busy (0.60 – 0.75)' },

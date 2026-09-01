@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- The corridor: the charged segment, its bypass, and the gantry between
+       them. Deliberately legible at 16px, where anything finer is mud. -->
+  <rect width="32" height="32" rx="6" fill="#0f172a"/>
+  <path d="M4 12h24" stroke="#f97316" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M4 21h24" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M16 6.5v19" stroke="#e2e8f0" stroke-width="1.6" stroke-dasharray="2.4 2.2"/>
+</svg>
