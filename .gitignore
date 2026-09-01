@@ -28,3 +28,9 @@ frontend/dist/
 # the endpoints behind them exceed Vercel's function timeout. Each one carries a
 # hash of the full model config and is refused if the running config differs, so
 # a stale file makes the API slower rather than wrong. See README, "Deploying".
+
+# LaTeX build artefacts
+*.aux
+*.log
+*.out
+*.synctex.gz

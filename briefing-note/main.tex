@@ -1,0 +1,380 @@
+% =====================================================================
+% UTTAN 2026 Student Competition -- Briefing Note
+%
+% REFERENCE EXAMPLE. Written as a worked model of structure, register and
+% evidence density. It is not for submission: the competition brief states
+% that AI tools may not be used to prepare the briefing note. Write your own
+% text; use this only to see how the pieces fit together.
+%
+% Format required by the brief: max 6 pages, double spaced, 11-point.
+% References and appendices are permitted IN ADDITION to the 6 pages.
+%
+% Build:  tectonic -X compile main.tex
+% =====================================================================
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{microtype}
+
+% Double spacing is a hard requirement. Tables and the reference list are set
+% single-spaced so they stay readable and do not consume the page budget.
+\doublespacing
+
+\titleformat{\section}{\normalfont\large\bfseries}{}{0pt}{}
+\titlespacing*{\section}{0pt}{6pt}{0pt}
+
+\captionsetup{font=small,labelfont=bf,skip=4pt}
+\setlist[enumerate]{itemsep=0pt,topsep=2pt,parsep=0pt}
+
+% Discourage a lone line stranded at the top or bottom of a page. Double
+% spacing makes orphans very visible, and a six-page limit leaves no room to
+% fix them by hand later.
+\widowpenalty=10000
+\clubpenalty=10000
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[L]{\footnotesize Reference example -- not for submission}
+\fancyfoot[R]{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+\begin{document}
+
+% ---------------------------------------------------------------- title
+\begin{singlespace}
+\noindent
+{\Large\bfseries Pricing the Western Gateway, Fairly}\\[2pt]
+{\normalsize A congestion charge for the Etobicoke--Gardiner corridor, and the
+conditions under which it could actually be built}\\[6pt]
+{\small\textbf{Briefing note to senior decision-makers} \quad|\quad UTTAN 2026
+Student Competition\\
+Bahar Shahkaram, Siddhartha Pahari, Jainish Solanki \quad|\quad University of
+Toronto \quad|\quad September 2026}
+\end{singlespace}
+\vspace{4pt}\hrule\vspace{4pt}
+
+% ---------------------------------------------------------------- summary
+\section*{Executive Summary}
+
+Congestion costs the GTHA more than \$44 billion a year, and Toronto has already
+tried to price it: Council approved tolls on the Gardiner and DVP in 2016, and
+the Province refused. The binding problem is not whether a charge would work.
+It is whether one can be authorised, survive a vote, and be worth having once
+the alternatives are counted honestly.
+
+We modelled a peak-period charge on the Gardiner's western gateway, Highway 427
+to the Humber River, as a three-level game: an authority sets a price,
+travellers respond, and voters and governments decide whether it proceeds. Three
+findings should change how the corridor is approached.
+
+First, \textbf{coverage matters more than price}. A charge on the expressway
+alone pushes 11.6\% more traffic onto The Queensway; charging the full
+screenline removes the free bypass and turns diversion negative.
+
+Second, \textbf{a charge is not the strongest delay instrument available}. A
+no-charge operational package removes 45.2\% of peak delay against 39.4\% for
+the recommended charge. The two together reach 64.4\%. Pricing earns its place
+on revenue, durability and demand management, not on delay.
+
+Third, \textbf{sequencing is worth more than the price}. At an identical charge,
+the difference between the best and worst order of operations is 0.56 welfare
+points -- larger than anything the rate itself buys.
+
+% ---------------------------------------------------------------- recs
+\section*{Recommendations}
+
+\begin{enumerate}[leftmargin=*]
+
+\item \textbf{Charge the full western screenline, not the expressway.} Price
+every inbound crossing between Highway 427 and the Humber, including Lake Shore
+Boulevard West and The Queensway. A freeway-only charge at \$4 breaches a 10\%
+local-diversion cap on City streets; screenline coverage reverses it.
+
+\item \textbf{Set the rate at \$10--12 for a 06:30--09:30 window, with income
+and transit-poor credits.} Solving price and start year together puts the charge
+at \$12. Above that it fails our equity floor, which is the binding constraint
+-- not public acceptability, which barely moves with the rate.
+
+\item \textbf{Deliver the operational package regardless of the charge.}
+Adaptive signals, ramp management, transit priority, parking pricing and GO
+frequency remove more peak delay on their own than the charge does, and carry
+none of its political cost. They are complements, not rivals.
+
+\item \textbf{Sequence deliberately: transit first, then a time-limited pilot,
+then a vote.} This path reaches 0.434 expected discounted welfare against
+$-$0.130 for charging immediately. None of that is better policy; all of it is a
+better chance the policy exists.
+
+\item \textbf{Resolve the 2027 Gardiner transfer before committing to a date.}
+The Province's refusal in 2017 implies it values the political cost above \$3.91
+per charged trip. Above roughly \$3.50, waiting until after the transfer
+dominates rushing a deal before it.
+
+\end{enumerate}
+
+% ---------------------------------------------------------------- problem
+\section*{Problem Statement}
+
+The Gardiner's western approach carries roughly 120{,}000 two-way weekday trips
+across a screenline where the expressway, an arterial and a secondary arterial
+run parallel into the same downstream bottleneck. It is the strongest candidate
+in the GTHA for a first charge: against 6{,}000 randomly weighted criterion
+sets, Etobicoke--Gardiner ranked first in 95.8\% of them. It also scores worst
+of five candidates on governance, which is the problem.
+
+The charged segment is 8.2 km of an 18.5 km trip. That geometry, not the price,
+drives the central risk: the cheapest way to avoid a gateway charge is not to
+stop driving but to leave the expressway before the gantry, run an arterial, and
+re-enter past it. Any design that ignores this understates diversion onto
+residential streets.
+
+Toronto's 2016--17 episode is the second constraint. Council voted for tolls;
+the Province refused and offered a gas-tax transfer instead. A corridor charge
+therefore has to clear two independent gates -- a public that will tolerate it
+and two governments that can agree -- and the Gardiner's transfer to the
+Province in late 2027 moves the second one.
+
+% ---------------------------------------------------------------- method
+\section*{Methodology}
+
+We built a bounded-corridor Stackelberg model. Five links are solved to a
+stochastic user equilibrium by the Method of Successive Averages: travellers
+choose the lowest perceived generalized cost, but the cost of driving depends on
+how many others drive.
+
+Travel choice is \textbf{nested logit} across eight actions -- pay and stay,
+two arterial bypasses, carpool, retime, GO rail, TTC, and forgo the trip.
+Multinomial logit was rejected deliberately: under its independence assumption a
+driver priced off the expressway is as likely to board a train as to divert onto
+Lake Shore, which would understate the study's central risk. Demand is
+segmented into 70 groups (seven sub-areas $\times$ five income quintiles
+$\times$ schedule flexibility).
+
+Link performance is fitted on three links and \textbf{held out on two}, whose
+predicted-versus-observed errors ($-6.3\%$, $-3.0\%$) are a genuine
+out-of-sample check. Every input carries a provenance tier -- published, derived
+or estimated -- and the most consequential estimated inputs are swept in a
+tornado analysis and a Monte Carlo.
+
+Nine operating and rejected schemes were used as \textbf{evidence rather than
+illustration}, including three places where the record contradicts our model. We
+report those contradictions rather than resolving them in our favour.
+
+% ---------------------------------------------------------------- analysis
+\section*{Analysis}
+
+\textbf{The charge is not the best delay instrument.} Table~\ref{tab:delay}
+compares the options on the quantity most often quoted.
+
+\begin{table}[h]
+\begin{singlespace}
+\centering
+\small
+\caption{Peak delay removed, against a common no-charge baseline}
+\label{tab:delay}
+\begin{tabular}{lr}
+\toprule
+\textbf{Option} & \textbf{Delay removed} \\
+\midrule
+\$5 screenline charge alone & 35.5\% \\
+Recommended \$10 charge with credits & 39.4\% \\
+No-charge operational package & \textbf{45.2\%} \\
+Charge \emph{and} operational package & \textbf{64.4\%} \\
+\bottomrule
+\end{tabular}
+\end{singlespace}
+\end{table}
+
+A charge only outperforms good operations if it is priced hard and compensated
+sparingly, which is the opposite of an equitable design. The defensible position
+is that both should be done, and that pricing is justified by revenue,
+durability and demand management rather than by delay.
+
+\textbf{Equity is the binding constraint, and the design that fixes it is what
+makes the scheme passable.} A flat charge is regressive: the lowest income
+quintile bears 4.7 times the burden of the highest as a share of income.
+Targeted credits cut that to 2.2 times, at the cost of revenue and some
+congestion relief. Against published benchmarks (Table~\ref{tab:suits}) even the
+credited design remains more regressive than every operating charge -- a fact we
+report rather than round away.
+
+\begin{table}[h]
+\begin{singlespace}
+\centering
+\small
+\caption{Suits index: 0 is proportional, negative is regressive}
+\label{tab:suits}
+\begin{tabular}{lr}
+\toprule
+\textbf{Scheme} & \textbf{Suits index} \\
+\midrule
+Stockholm / Helsinki & $-0.09$ \\
+Gothenburg & $-0.13$ \\
+Lyon (proposed) & $-0.16$ \\
+\textbf{This corridor, recommended design} & $\mathbf{-0.16}$ \\
+This corridor, flat \$10 charge & $-0.20$ \\
+\bottomrule
+\end{tabular}
+\end{singlespace}
+\end{table}
+
+\textbf{The burden is local, not regional.} Contrary to the New Jersey pattern
+often cited from New York, the 905 pays 36.2\% of the charge while making 40.0\%
+of trips -- it is a net beneficiary, because Lakeshore West GO offers a genuine
+alternative. The heaviest burden falls on inner Etobicoke: Alderwood makes 6.5\%
+of trips and pays 8.6\% of the charge. Income explains only 46\% of the
+variation in burden across sub-areas, which is why geographic equity needs
+treating separately from income equity.
+
+\textbf{Sequencing is worth more than the price.} The same \$10 charge produces
+very different expected outcomes depending on what precedes it
+(Table~\ref{tab:seq}). The gap between the best ordering and charging
+immediately is 0.56 welfare points -- larger than the difference between any two
+rates we tested. None of it is better policy; all of it is a better chance the
+policy exists, and the pilot does most of the work because it replaces a
+forecast with an experience.
+
+\begin{table}[h]
+\begin{singlespace}
+\centering
+\small
+\caption{Expected discounted welfare over ten years, at an identical \$10 charge}
+\label{tab:seq}
+\begin{tabular}{llcr}
+\toprule
+\textbf{Path} & \textbf{Precedent} & \textbf{Support at gate} & \textbf{E[welfare]} \\
+\midrule
+Transit, pilot, then referendum & Stockholm & 73\% & \textbf{0.434} \\
+Transit first, then charge & Stockholm, no pilot & 52\% & 0.171 \\
+Transit, ride-hail surcharge, cordon & New York 2019--25 & 52\% & 0.120 \\
+Charge immediately & New York 2008 & 38\% & $-0.130$ \\
+Operations, never charge & Toronto CMP & -- & $-0.197$ \\
+\bottomrule
+\end{tabular}
+\end{singlespace}
+\end{table}
+
+\textbf{Authorisation is a second, separate gate.} A charge needs a public that
+will tolerate it \emph{and} two governments that can agree. Today neither the
+City nor the Province can price the Gardiner alone, so they hold a mutual veto.
+After the corridor transfers in late 2027 the Province owns the road and
+authorises itself -- and gains the option of a freeway-only charge, the very
+design that pushes traffic onto City streets. Because the political cost of
+authorising is unobservable, we invert it rather than assume it: the zone of
+agreement closes at \$3.91 per charged trip before the transfer and \$8.75
+after. The Province did refuse in 2017, which places its true valuation above
+the first figure. On that reading, waiting until after the transfer dominates
+rushing a deal before it, and public support makes agreement materially easier
+-- at \$3.50 per charged trip, allowing the two gates to move together makes
+waiting 5.7 times more valuable.
+
+\textbf{The scheme is financially marginal.} At \$10 with credits, net revenue
+is roughly \$5.6 million a year. Fixed collection costs do not scale down, so a
+single-corridor pilot can spend more collecting than it raises. Revenue is a
+reason to price a network, not this corridor alone.
+
+\textbf{What we are least sure of.} The screenline demand is derived rather than
+counted, and observed travel times are estimates. The diversion finding depends
+on an assumed 55\% of bypassing drivers rejoining the expressway; it reverses
+below 49\%. Our demand response is also 2.1 points stronger than New York
+observed in its first year, which we record as unresolved rather than explained
+away. A published screenline count and probe travel times would settle more than
+any further modelling.
+
+% ---------------------------------------------------------------- AI
+\section*{Use of AI Tools}
+
+\begin{singlespace}
+\small
+AI tools were used to support research only, as permitted. Specifically: to
+assist in writing and debugging the Python simulation code underlying the
+analysis; to help structure the review of comparator schemes; and to check
+numerical results for internal consistency. All modelling assumptions, source
+selection, interpretation and every word of this briefing note are the authors'
+own. No AI tool was used to prepare this note or the accompanying presentation.
+\end{singlespace}
+
+\newpage
+% ================================================================ refs
+\begin{singlespace}
+\section*{References}
+\small
+\begin{enumerate}[leftmargin=*,itemsep=1pt]
+\item CBC News (2025, January 29). \textit{Congestion costs the GTHA more than
+\$44 billion a year.}
+\item Eliasson, J. (2016). \textit{Is Congestion Pricing Fair? Consumer and
+Citizen Perspectives on Equity Effects.} ITF Discussion Paper 2016-13.
+\item Federal Highway Administration. \textit{Income-Based Equity Impacts of
+Congestion Pricing: A Primer.} FHWA-HOP-08-040.
+\item Greenlining Institute (2020). \textit{Mobility Pricing: An Equity-First
+Approach.}
+\item Shaheen, S., et al. (2019). \textit{Mobility and the Sharing Economy:
+STEPS to Transportation Equity.} UC Berkeley TSRC.
+\item San Francisco County Transportation Authority (2020). \textit{Congestion
+Pricing Case Studies: London, Stockholm, New York.}
+\item Regional Plan Association (2019). \textit{Congestion Pricing in New York
+City.}
+\item City of Toronto. \textit{Gardiner Expressway and Don Valley Parkway:
+Tolling Options} (2016) and \textit{Provincial Upload Agreement} (2024).
+\item Metrolinx. \textit{Business Case Guidance} and \textit{Lakeshore West
+Corridor Service Plans.}
+\item Transportation Tomorrow Survey (2022). Data Management Group, University
+of Toronto.
+\end{enumerate}
+
+% ================================================================ appendix
+\section*{Appendix A -- Model Structure}
+\small
+Five links: \texttt{gardiner\_west} (the charged segment, 8.2 km),
+\texttt{gardiner\_east} (shared downstream, 10.3 km), plus
+\texttt{lakeshore\_west}, \texttt{lakeshore\_east} and
+\texttt{queensway\_west}. Link performance follows
+$t(v)=t_{f}+d_{s}+t_{f}\,\alpha (v/c)^{\beta}$, with $\beta$ held at a
+literature value and $\alpha$ fitted on three links and transferred to two.
+
+\section*{Appendix B -- Selected Results}
+\begin{table}[h]
+\centering
+\small
+\caption*{\normalfont\small Recommended design: \$10, full western screenline,
+06:30--09:30, with income and transit-poor credits.}
+\begin{tabular}{lr}
+\toprule
+\textbf{Indicator} & \textbf{Value} \\
+\midrule
+Peak vehicles & $-7.6\%$ \\
+Peak delay removed & 39.4\% \\
+Travel time saved & 4.5 minutes \\
+Net revenue & \$5.6M per year \\
+Travellers better off & 63.1\% \\
+Support, before / after operation & 38\% / 61\% \\
+Pigouvian benchmark, charged segment & \$9.73 \\
+Pigouvian, untolled downstream section & \$18.34 \\
+Price of anarchy & 1.14 (\$55.9M per year) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section*{Appendix C -- Where the Record Contradicts This Study}
+\begin{enumerate}[leftmargin=*,itemsep=1pt]
+\item \textbf{London.} Its traffic reduction was permanent; its delay reduction
+was not. Our 39.4\% is a first-year figure. Background growth alone erodes it to
+34.7\% over ten years, and reproducing London's five-year reversion requires
+about 28\% of freed capacity to be reallocated to buses and public realm --
+at which point traffic is down further still.
+\item \textbf{Edinburgh.} Rejected 74.4\% to 25.6\% on \emph{trust}, not
+economics: one in four believed the revenue would reach transport.
+\item \textbf{Manchester.} A \pounds3bn package was attached and the referendum
+was still lost. A credible package cannot rescue a charge nobody believes will
+work.
+\end{enumerate}
+\end{singlespace}
+
+\end{document}
