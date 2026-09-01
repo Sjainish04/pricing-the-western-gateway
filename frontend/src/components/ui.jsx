@@ -238,7 +238,7 @@ export class ChunkBoundary extends Component {
     const isStale = /dynamically imported module|Importing a module script failed|MIME type|Failed to fetch/i.test(message)
 
     return (
-      <div className="errorbox">
+      <div className="error">
         <b>{isStale ? 'This page was updated while you had it open.' : 'That part of the page failed to load.'}</b>
         <p className="aside">
           {isStale
