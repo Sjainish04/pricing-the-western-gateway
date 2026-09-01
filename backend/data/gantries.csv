@@ -1,9 +1,9 @@
 gantry_id,name,lat,lon,road,role,captures_veh_peak,note
-g_427,Hwy 427 / Gardiner interchange,43.6082,-79.5460,gardiner,primary,14256,"Western gateway entry point; catches all through traffic from Peel and Halton."
-g_islington,Islington Ave ramp,43.6206,-79.5150,gardiner,ramp,1820,"Ramp-level gantry so local entries are charged consistently with through trips."
-g_royal_york,Royal York Rd ramp,43.6240,-79.4980,gardiner,ramp,1540,"Mimico / Royal York entry."
-g_park_lawn,Park Lawn Rd ramp,43.6270,-79.4830,gardiner,ramp,2110,"Highest-growth entry given Humber Bay Shores development."
-g_humber,Humber River screenline,43.6320,-79.4720,gardiner,screenline,14256,"Eastern boundary of the study segment; the charge point for a cordon design."
-g_ls_427,Lake Shore Blvd W at Hwy 427,43.5960,-79.5430,lakeshore,diversion,1250,"Diversion-control gantry, required only if Lake Shore is included in the screenline."
-g_ls_park_lawn,Lake Shore Blvd W at Park Lawn,43.6220,-79.4790,lakeshore,diversion,4180,"Catches the dominant Lake Shore diversion movement before the Humber."
-g_queensway,The Queensway at Kipling,43.6230,-79.5330,queensway,diversion,2560,"Secondary diversion screenline."
+g_427,Hwy 427 / Gardiner interchange,43.61454,-79.54500,gardiner,primary,14256,Western gateway entry point; catches all through traffic from Peel and Halton.
+g_islington,Islington Ave ramp,43.62006,-79.51496,gardiner,ramp,1820,Ramp-level gantry so local entries are charged consistently with through trips.
+g_royal_york,Royal York Rd ramp,43.62343,-79.49787,gardiner,ramp,1540,Mimico / Royal York entry.
+g_park_lawn,Park Lawn Rd ramp,43.62717,-79.48306,gardiner,ramp,2110,Highest-growth entry given Humber Bay Shores development.
+g_humber,Humber River screenline,43.63366,-79.47230,gardiner,screenline,14256,Eastern boundary of the study segment; the charge point for a cordon design.
+g_ls_427,Lake Shore Blvd W at Hwy 427,43.59244,-79.54200,lakeshore,diversion,1250,"Diversion-control gantry, required only if Lake Shore is included in the screenline."
+g_ls_park_lawn,Lake Shore Blvd W at Park Lawn,43.62325,-79.48108,lakeshore,diversion,4180,Catches the dominant Lake Shore diversion movement before the Humber.
+g_queensway,The Queensway at Kipling,43.61970,-79.53238,queensway,diversion,2560,Secondary diversion screenline.
