@@ -79,34 +79,24 @@ export const buildingExtrusionLayer = (color) => ({
 
 const OSM_ATTR = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 
+// Four providers were dropped on 2026-08-31 because they had stopped serving
+// usable tiles without a key, and both failed in the way that is hardest to
+// notice: HTTP 200 with a degraded image rather than an error the map could
+// report.
+//
+//   carto_voyager / carto_light / carto_dark -- CARTO now returns a tile
+//     stamped "API KEY REQUIRED" across its face. `carto_voyager` was the
+//     DEFAULT, so the 2D fallback opened watermarked, and nothing in the
+//     console said why.
+//   opentopo -- returns a blank 103-byte 1-bit PNG.
+//
+// What remains is verified keyless, which is the property the whole map design
+// rests on: no key, no token, no account. Check with a tile request before
+// adding a provider back, and check the BYTES, not the status code.
 export const RASTER_BASEMAPS = [
   {
-    id: 'carto_voyager',
-    label: 'Streets',
-    url: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
-    attribution: `${OSM_ATTR}, &copy; CARTO`,
-    tone: 'light',
-    maxZoom: 20,
-  },
-  {
-    id: 'carto_light',
-    label: 'Minimal',
-    url: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
-    attribution: `${OSM_ATTR}, &copy; CARTO`,
-    tone: 'light',
-    maxZoom: 20,
-  },
-  {
-    id: 'carto_dark',
-    label: 'Dark',
-    url: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-    attribution: `${OSM_ATTR}, &copy; CARTO`,
-    tone: 'dark',
-    maxZoom: 20,
-  },
-  {
     id: 'osm',
-    label: 'OSM',
+    label: 'Streets',
     url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
     attribution: OSM_ATTR,
     tone: 'light',
@@ -120,14 +110,6 @@ export const RASTER_BASEMAPS = [
     tone: 'dark',
     maxZoom: 19,
     note: 'Shows the actual land use the bypass routes run through.',
-  },
-  {
-    id: 'opentopo',
-    label: 'Topographic',
-    url: 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
-    attribution: `${OSM_ATTR}, SRTM | &copy; OpenTopoMap (CC-BY-SA)`,
-    tone: 'light',
-    maxZoom: 17,
   },
 ]
 
