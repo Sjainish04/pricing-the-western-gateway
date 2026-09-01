@@ -1,5 +1,5 @@
 /* Small presentational pieces shared across the pages. */
-import { useEffect, useRef, useState } from 'react'
+import { Component, useEffect, useRef, useState } from 'react'
 
 import { fmt } from './charts.jsx'
 
@@ -210,4 +210,43 @@ export function Constraints({ feasible }) {
       />
     </div>
   )
+}
+
+/* A lazily-loaded chunk that fails to arrive is the one error this app cannot
+ * render its way around: React unmounts the subtree and the user gets an empty
+ * box with nothing to act on. It happens for a mundane reason -- the tab was
+ * open across a deploy, so it is asking for a chunk filename that no longer
+ * exists -- and the fix is always the same, so say so and offer it.
+ *
+ * A class component because error boundaries have no hook equivalent. */
+export class ChunkBoundary extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { error: null }
+  }
+
+  static getDerivedStateFromError(error) {
+    return { error }
+  }
+
+  render() {
+    const { error } = this.state
+    if (!error) return this.props.children
+
+    // A stale-chunk failure, as opposed to a genuine bug in the component.
+    const message = String(error?.message ?? error)
+    const isStale = /dynamically imported module|Importing a module script failed|MIME type|Failed to fetch/i.test(message)
+
+    return (
+      <div className="errorbox">
+        <b>{isStale ? 'This page was updated while you had it open.' : 'That part of the page failed to load.'}</b>
+        <p className="aside">
+          {isStale
+            ? 'The map is loaded on demand, and this tab is still asking for the previous version of it. Reloading picks up the current one.'
+            : message}
+        </p>
+        <button className="pill" onClick={() => window.location.reload()}>Reload</button>
+      </div>
+    )
+  }
 }

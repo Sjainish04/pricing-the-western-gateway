@@ -22,6 +22,7 @@ import { Suspense, lazy, useCallback, useEffect, useState } from 'react'
 
 import { RASTER_BASEMAPS, VECTOR_BASEMAPS, defaultBasemap } from '../lib/basemaps.js'
 import { probe3D } from '../lib/capabilities.js'
+import { ChunkBoundary } from './ui.jsx'
 
 const Map3D = lazy(() => import('./Map3D.jsx'))
 const Map2D = lazy(() => import('./Map2D.jsx'))
@@ -111,11 +112,17 @@ export default function CorridorMap({ theme = 'light', ...props }) {
 
       {basemap.note && <div className="note" style={{ marginTop: 0 }}>{basemap.note}</div>}
 
-      <Suspense fallback={<div className="loading">Loading the map…</div>}>
-        {mode === '3d'
-          ? <Map3D basemap={basemap} onUnavailable={handleUnavailable} {...props} />
-          : <Map2D basemap={basemap} {...props} />}
-      </Suspense>
+      {/* Both maps arrive as lazy chunks, so a tab left open across a deploy
+        * asks for a filename that no longer exists and the import rejects.
+        * Without a boundary React unmounts the subtree and the map area simply
+        * goes blank -- the failure this page is least able to explain. */}
+      <ChunkBoundary>
+        <Suspense fallback={<div className="loading">Loading the map…</div>}>
+          {mode === '3d'
+            ? <Map3D basemap={basemap} onUnavailable={handleUnavailable} {...props} />
+            : <Map2D basemap={basemap} {...props} />}
+        </Suspense>
+      </ChunkBoundary>
     </div>
   )
 }
