@@ -34,3 +34,5 @@ frontend/dist/
 *.log
 *.out
 *.synctex.gz
+.vercel
+.env*
