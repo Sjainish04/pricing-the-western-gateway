@@ -1,0 +1,6 @@
+gateway_id,name,lat,lon,daily_vehicles,peak_delay_index,transit_substitute,revenue_potential,diversion_risk,equity_exposure,boundary_definability,governance_feasibility,note
+gardiner_west,Etobicoke - Gardiner West (427 to Humber),43.6236,-79.4890,120000,0.78,0.86,0.82,0.55,0.48,0.88,0.35,"Lakeshore West GO gives a genuine parallel rail alternative; provincial transfer in fall 2027 constrains a direct toll."
+dvp,Don Valley Parkway / Don Valley approach,43.6820,-79.3520,100000,0.92,0.38,0.74,0.72,0.62,0.72,0.35,"Worst delay of the candidates, but the parallel transit substitute is weak and diversion onto Bayview/Don Mills is severe."
+allen,Allen Road / Spadina - Eglinton approach,43.7050,-79.4400,55000,0.68,0.74,0.42,0.66,0.55,0.60,0.70,"Line 1 and the Eglinton Crosstown give alternatives, but the traffic base and revenue potential are much smaller."
+qew_427,QEW / Hwy 427 south gateway,43.6060,-79.5540,145000,0.74,0.62,0.88,0.60,0.58,0.55,0.20,"Largest traffic base, but it is a 400-series provincial highway with the weakest City authority and a hard-to-define boundary."
+kingston_lakeshore_e,Kingston Rd / Lake Shore East approach,43.6890,-79.2760,48000,0.58,0.66,0.36,0.48,0.66,0.64,0.78,"City-controlled and easy to implement, but low volumes and high equity exposure in Scarborough Southwest."

@@ -1,0 +1,6 @@
+station_id,name,lat,lon,mode,ivt_to_union_min,peak_boardings_inbound,note
+long_branch,Long Branch GO,43.5930,-79.5430,go_rail,22,2350,"Lakeshore West; also the 501 streetcar terminus."
+mimico,Mimico GO,43.6165,-79.4970,go_rail,17,3120,"Closest station to the Gardiner western gateway."
+park_lawn,Park Lawn GO (planned),43.6240,-79.4790,go_rail,14,2330,"Planned Lakeshore West infill station serving Humber Bay Shores."
+kipling,Kipling TTC / GO hub,43.6370,-79.5360,ttc,34,3400,"Line 2 subway plus Milton-line GO; the broader western alternative."
+islington,Islington TTC,43.6455,-79.5240,ttc,31,2200,"Line 2 subway."

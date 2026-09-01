@@ -1,0 +1,69 @@
+{
+  "type": "FeatureCollection",
+  "note": "Indicative representative points for the seven demand sub-areas, placed at the approximate centre of each named neighbourhood. These are POINTS, not boundaries: the sub-areas have no digitised polygons here, and inventing them would imply a spatial precision the synthetic OD pattern does not have. Presentation only, exactly as link_geometry.json is -- no calculation reads these coordinates, and the burden values drawn at them come from the model's segment table, not from any geography. The Mississauga / west GTA point stands for a catchment reaching well beyond the marker, and is placed west of the screenline to show the direction demand arrives from rather than where those travellers live.",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "subarea": "Alderwood",
+        "outside_toronto": false,
+        "note": "Between the Etobicoke Creek and Brown's Line, south of Evans."
+      },
+      "geometry": { "type": "Point", "coordinates": [-79.5452, 43.6012] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subarea": "Long Branch",
+        "outside_toronto": false,
+        "note": "South of Lake Shore Blvd W at the western City limit."
+      },
+      "geometry": { "type": "Point", "coordinates": [-79.5359, 43.5903] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subarea": "New Toronto / Mimico S",
+        "outside_toronto": false,
+        "note": "Lake Shore Blvd W between Islington and Royal York."
+      },
+      "geometry": { "type": "Point", "coordinates": [-79.5052, 43.6012] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subarea": "Mimico / Park Lawn",
+        "outside_toronto": false,
+        "note": "Around the Park Lawn / Lake Shore node, nearest Mimico GO."
+      },
+      "geometry": { "type": "Point", "coordinates": [-79.4923, 43.6172] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subarea": "Islington-City Centre W",
+        "outside_toronto": false,
+        "note": "The Etobicoke centre around Islington and Bloor."
+      },
+      "geometry": { "type": "Point", "coordinates": [-79.5253, 43.6351] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subarea": "Markland / Etobicoke W",
+        "outside_toronto": false,
+        "note": "West Etobicoke toward Highway 427, the weakest transit access of the seven."
+      },
+      "geometry": { "type": "Point", "coordinates": [-79.5703, 43.6402] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subarea": "Mississauga / west GTA",
+        "outside_toronto": true,
+        "note": "A catchment, not a neighbourhood: 40% of corridor demand, arriving from beyond the City boundary. The marker shows the direction of arrival, not where these travellers live."
+      },
+      "geometry": { "type": "Point", "coordinates": [-79.6402, 43.6001] }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+key,value,unit,tier,source,note
+new_deal_capital_relief,7600000000,CAD,PUBLISHED,"City of Toronto - Ontario-Toronto New Deal","Up to $7.6B in capital relief to the City from uploading the Gardiner and DVP to the Province."
+new_deal_unlocked_decade,1900000000,CAD/decade,PUBLISHED,"City of Toronto - Ontario-Toronto New Deal","Approximately $1.9B unlocked over ten years for transit, housing and City facilities. Council approved 2023-12-13."
+interim_om_support,353000000,CAD,PUBLISHED,"City of Toronto - Gardiner and DVP transfer","Up to $353M provided by the Province for operation and maintenance until the transfer completes."
+support_provided_to_date,431400000,CAD,PUBLISHED,"City of Toronto - Gardiner and DVP transfer","Provincial financial support for maintenance and repair of the two highways since the New Deal was announced in November 2023."
+transfer_year,2027,year,PUBLISHED,"City of Toronto - Gardiner and DVP transfer","Ownership and responsibility transfer to the Province in fall 2027."
+council_toll_vote_for,32,votes,PUBLISHED,"Toronto City Council, December 2016","Council voted 32-9 to ask the Province to approve tolling the Gardiner and DVP."
+council_toll_vote_against,9,votes,PUBLISHED,"Toronto City Council, December 2016","The other side of the same vote."
+province_toll_veto_year,2017,year,PUBLISHED,"Premier Kathleen Wynne, 2017-01-27","The Province refused the request. This is the disagreement outcome of exactly the game modelled here, actually played."
+side_payment_accepted,170000000,CAD/year,PUBLISHED,"Province of Ontario, 2017 - municipal gas tax share","Compensation offered and accepted in lieu of tolls: the municipal gas tax share doubled from 2 to 4 cents/litre by 2021, worth about $170M/yr to Toronto."
+side_payment_vs_toll_estimate,0.85,ratio,PUBLISHED,"Reported comparison, 2017","The gas tax settlement was about 15% less than the City's own estimate of toll revenue -- so the accepted side payment was roughly 0.85 of the disputed prize."
+non_toronto_demand_share,0.40,fraction,DERIVED,"data/segments.csv","Share of AM-peak corridor demand originating outside Toronto (Mississauga / west GTA). Derived from the segment table, not assumed."

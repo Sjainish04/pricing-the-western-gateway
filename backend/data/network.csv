@@ -1,0 +1,6 @@
+link_id,name,kind,segment,length_km,free_flow_kmh,lanes,lane_capacity,alpha,beta,signal_delay_min,observed_peak_min,calibrate_alpha,tollable_city,tollable_province
+gardiner_west,Gardiner Expwy (Hwy 427 - Humber River),freeway,west,8.2,90,3,1600,0.905,4.5,0.8,11.0,1,0,1
+gardiner_east,Gardiner Expwy (Humber River - downtown core),freeway,east,10.3,90,4,1600,1.762,4.5,0.7,16.5,1,0,1
+lakeshore_west,Lake Shore Blvd W (Hwy 427 - Humber River),arterial,west,9.0,55,2,800,1.200,4.5,5.0,21.0,1,1,1
+lakeshore_east,Lake Shore Blvd W (Humber River - downtown),arterial,east,6.8,55,2,800,1.200,4.5,6.0,15.5,0,1,1
+queensway_west,The Queensway / Dundas St W (Hwy 427 - Humber),arterial,west,9.8,55,2,800,1.200,4.5,7.0,19.0,0,1,1

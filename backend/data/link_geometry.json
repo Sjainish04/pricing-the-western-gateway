@@ -1,0 +1,151 @@
+{
+  "type": "FeatureCollection",
+  "note": "Approximate centreline alignments for the five modelled links, digitised from the road geometry between Highway 427 and the downtown core. Accurate enough to locate the corridor, its bypasses and the charging screenline on a map; not survey data, and not used in any calculation.",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "link_id": "gardiner_west",
+        "name": "Gardiner Expwy (Hwy 427 - Humber River)",
+        "kind": "freeway",
+        "segment": "west",
+        "charged": true
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-79.5470, 43.6090],
+          [-79.5395, 43.6098],
+          [-79.5330, 43.6110],
+          [-79.5262, 43.6124],
+          [-79.5190, 43.6140],
+          [-79.5125, 43.6157],
+          [-79.5060, 43.6175],
+          [-79.5000, 43.6192],
+          [-79.4940, 43.6210],
+          [-79.4880, 43.6229],
+          [-79.4820, 43.6250],
+          [-79.4768, 43.6274],
+          [-79.4715, 43.6300]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "link_id": "gardiner_east",
+        "name": "Gardiner Expwy (Humber River - downtown core)",
+        "kind": "freeway",
+        "segment": "east",
+        "charged": false
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-79.4715, 43.6300],
+          [-79.4650, 43.6320],
+          [-79.4590, 43.6335],
+          [-79.4515, 43.6350],
+          [-79.4440, 43.6360],
+          [-79.4365, 43.6367],
+          [-79.4290, 43.6370],
+          [-79.4210, 43.6366],
+          [-79.4130, 43.6360],
+          [-79.4065, 43.6357],
+          [-79.4000, 43.6355],
+          [-79.3945, 43.6365],
+          [-79.3890, 43.6380],
+          [-79.3845, 43.6391],
+          [-79.3800, 43.6400],
+          [-79.3745, 43.6408]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "link_id": "lakeshore_west",
+        "name": "Lake Shore Blvd W (Hwy 427 - Humber River)",
+        "kind": "arterial",
+        "segment": "west",
+        "charged": false
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-79.5450, 43.5940],
+          [-79.5390, 43.5958],
+          [-79.5330, 43.5975],
+          [-79.5265, 43.5997],
+          [-79.5200, 43.6020],
+          [-79.5130, 43.6050],
+          [-79.5060, 43.6080],
+          [-79.4995, 43.6115],
+          [-79.4930, 43.6150],
+          [-79.4875, 43.6185],
+          [-79.4820, 43.6220],
+          [-79.4768, 43.6270],
+          [-79.4720, 43.6295]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "link_id": "lakeshore_east",
+        "name": "Lake Shore Blvd W (Humber River - downtown)",
+        "kind": "arterial",
+        "segment": "east",
+        "charged": false
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-79.4720, 43.6295],
+          [-79.4655, 43.6315],
+          [-79.4590, 43.6330],
+          [-79.4515, 43.6345],
+          [-79.4440, 43.6355],
+          [-79.4365, 43.6362],
+          [-79.4290, 43.6365],
+          [-79.4210, 43.6360],
+          [-79.4130, 43.6355],
+          [-79.4065, 43.6352],
+          [-79.4000, 43.6350],
+          [-79.3945, 43.6360],
+          [-79.3890, 43.6375],
+          [-79.3840, 43.6386],
+          [-79.3790, 43.6396]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "link_id": "queensway_west",
+        "name": "The Queensway / Dundas St W (Hwy 427 - Humber)",
+        "kind": "arterial",
+        "segment": "west",
+        "charged": false
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-79.5480, 43.6205],
+          [-79.5410, 43.6212],
+          [-79.5340, 43.6220],
+          [-79.5270, 43.6227],
+          [-79.5200, 43.6235],
+          [-79.5130, 43.6242],
+          [-79.5060, 43.6250],
+          [-79.4995, 43.6260],
+          [-79.4930, 43.6270],
+          [-79.4865, 43.6280],
+          [-79.4800, 43.6290],
+          [-79.4750, 43.6296],
+          [-79.4700, 43.6320]
+        ]
+      }
+    }
+  ]
+}

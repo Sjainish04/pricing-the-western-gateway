@@ -1,0 +1,8 @@
+criterion,weight,direction,description
+peak_delay_index,0.20,higher_better,"Peak congestion and delay intensity -- more delay means more to be gained from pricing."
+traffic_base,0.20,higher_better,"Daily and peak traffic volume, normalised across candidates."
+transit_substitute,0.20,higher_better,"Quality of the parallel transit alternative available to priced-off travellers."
+revenue_potential,0.15,higher_better,"Charge base after plausible exemptions."
+diversion_risk,0.10,lower_better,"Risk that priced traffic simply reappears on neighbourhood streets."
+equity_exposure,0.10,lower_better,"Unmitigated distributional burden before credits."
+governance_feasibility,0.05,higher_better,"Legal and institutional ability to actually levy the charge."

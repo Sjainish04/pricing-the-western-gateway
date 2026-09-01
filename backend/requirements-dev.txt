@@ -1,0 +1,6 @@
+# Everything in the runtime set, plus the test tooling. Not installed on the
+# deployment -- pytest and httpx are ~10 MB that a serverless function has no
+# use for.
+-r requirements-local.txt
+pytest>=8.0
+httpx>=0.27

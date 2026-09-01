@@ -1,0 +1,71 @@
+segment_id,subarea,quintile,household_income,schedule,transit_access,wfh_capable,share
+Long_Branch|Q1|fixed,Long Branch,Q1,24000,fixed,0.85,0.0,0.006944
+Long_Branch|Q1|flexible,Long Branch,Q1,24000,flexible,0.85,0.06,0.004256
+Long_Branch|Q2|fixed,Long Branch,Q2,49000,fixed,0.85,0.0,0.008736
+Long_Branch|Q2|flexible,Long Branch,Q2,49000,flexible,0.85,0.13,0.008064
+Long_Branch|Q3|fixed,Long Branch,Q3,79000,fixed,0.85,0.0,0.006048
+Long_Branch|Q3|flexible,Long Branch,Q3,79000,flexible,0.85,0.28,0.010752
+Long_Branch|Q4|fixed,Long Branch,Q4,120000,fixed,0.85,0.0,0.003388
+Long_Branch|Q4|flexible,Long Branch,Q4,120000,flexible,0.85,0.44,0.012012
+Long_Branch|Q5|fixed,Long Branch,Q5,215000,fixed,0.85,0.0,0.001372
+Long_Branch|Q5|flexible,Long Branch,Q5,215000,flexible,0.85,0.52,0.008428
+New_Toronto|Q1|fixed,New Toronto / Mimico S,Q1,24000,fixed,0.8,0.0,0.00837
+New_Toronto|Q1|flexible,New Toronto / Mimico S,Q1,24000,flexible,0.8,0.06,0.00513
+New_Toronto|Q2|fixed,New Toronto / Mimico S,Q2,49000,fixed,0.8,0.0,0.00975
+New_Toronto|Q2|flexible,New Toronto / Mimico S,Q2,49000,flexible,0.8,0.13,0.009
+New_Toronto|Q3|fixed,New Toronto / Mimico S,Q3,79000,fixed,0.8,0.0,0.00621
+New_Toronto|Q3|flexible,New Toronto / Mimico S,Q3,79000,flexible,0.8,0.28,0.01104
+New_Toronto|Q4|fixed,New Toronto / Mimico S,Q4,120000,fixed,0.8,0.0,0.003465
+New_Toronto|Q4|flexible,New Toronto / Mimico S,Q4,120000,flexible,0.8,0.44,0.012285
+New_Toronto|Q5|fixed,New Toronto / Mimico S,Q5,215000,fixed,0.8,0.0,0.001365
+New_Toronto|Q5|flexible,New Toronto / Mimico S,Q5,215000,flexible,0.8,0.52,0.008385
+Mimico|Q1|fixed,Mimico / Park Lawn,Q1,24000,fixed,0.88,0.0,0.007254
+Mimico|Q1|flexible,Mimico / Park Lawn,Q1,24000,flexible,0.88,0.06,0.004446
+Mimico|Q2|fixed,Mimico / Park Lawn,Q2,49000,fixed,0.88,0.0,0.010816
+Mimico|Q2|flexible,Mimico / Park Lawn,Q2,49000,flexible,0.88,0.13,0.009984
+Mimico|Q3|fixed,Mimico / Park Lawn,Q3,79000,fixed,0.88,0.0,0.010764
+Mimico|Q3|flexible,Mimico / Park Lawn,Q3,79000,flexible,0.88,0.28,0.019136
+Mimico|Q4|fixed,Mimico / Park Lawn,Q4,120000,fixed,0.88,0.0,0.008008
+Mimico|Q4|flexible,Mimico / Park Lawn,Q4,120000,flexible,0.88,0.44,0.028392
+Mimico|Q5|fixed,Mimico / Park Lawn,Q5,215000,fixed,0.88,0.0,0.004368
+Mimico|Q5|flexible,Mimico / Park Lawn,Q5,215000,flexible,0.88,0.52,0.026832
+Alderwood|Q1|fixed,Alderwood,Q1,24000,fixed,0.55,0.0,0.004433
+Alderwood|Q1|flexible,Alderwood,Q1,24000,flexible,0.55,0.06,0.002717
+Alderwood|Q2|fixed,Alderwood,Q2,49000,fixed,0.55,0.0,0.006422
+Alderwood|Q2|flexible,Alderwood,Q2,49000,flexible,0.55,0.13,0.005928
+Alderwood|Q3|fixed,Alderwood,Q3,79000,fixed,0.55,0.0,0.006084
+Alderwood|Q3|flexible,Alderwood,Q3,79000,flexible,0.55,0.28,0.010816
+Alderwood|Q4|fixed,Alderwood,Q4,120000,fixed,0.55,0.0,0.003861
+Alderwood|Q4|flexible,Alderwood,Q4,120000,flexible,0.55,0.44,0.013689
+Alderwood|Q5|fixed,Alderwood,Q5,215000,fixed,0.55,0.0,0.001547
+Alderwood|Q5|flexible,Alderwood,Q5,215000,flexible,0.55,0.52,0.009503
+Islington-City_Centre_W|Q1|fixed,Islington-City Centre W,Q1,24000,fixed,0.7,0.0,0.010788
+Islington-City_Centre_W|Q1|flexible,Islington-City Centre W,Q1,24000,flexible,0.7,0.06,0.006612
+Islington-City_Centre_W|Q2|fixed,Islington-City Centre W,Q2,49000,fixed,0.7,0.0,0.013572
+Islington-City_Centre_W|Q2|flexible,Islington-City Centre W,Q2,49000,flexible,0.7,0.13,0.012528
+Islington-City_Centre_W|Q3|fixed,Islington-City Centre W,Q3,79000,fixed,0.7,0.0,0.012006
+Islington-City_Centre_W|Q3|flexible,Islington-City Centre W,Q3,79000,flexible,0.7,0.28,0.021344
+Islington-City_Centre_W|Q4|fixed,Islington-City Centre W,Q4,120000,fixed,0.7,0.0,0.008294
+Islington-City_Centre_W|Q4|flexible,Islington-City Centre W,Q4,120000,flexible,0.7,0.44,0.029406
+Islington-City_Centre_W|Q5|fixed,Islington-City Centre W,Q5,215000,fixed,0.7,0.0,0.004263
+Islington-City_Centre_W|Q5|flexible,Islington-City Centre W,Q5,215000,flexible,0.7,0.52,0.026187
+Markland|Q1|fixed,Markland / Etobicoke W,Q1,24000,fixed,0.3,0.0,0.004278
+Markland|Q1|flexible,Markland / Etobicoke W,Q1,24000,flexible,0.3,0.06,0.002622
+Markland|Q2|fixed,Markland / Etobicoke W,Q2,49000,fixed,0.3,0.0,0.006578
+Markland|Q2|flexible,Markland / Etobicoke W,Q2,49000,flexible,0.3,0.13,0.006072
+Markland|Q3|fixed,Markland / Etobicoke W,Q3,79000,fixed,0.3,0.0,0.007866
+Markland|Q3|flexible,Markland / Etobicoke W,Q3,79000,flexible,0.3,0.28,0.013984
+Markland|Q4|fixed,Markland / Etobicoke W,Q4,120000,fixed,0.3,0.0,0.00759
+Markland|Q4|flexible,Markland / Etobicoke W,Q4,120000,flexible,0.3,0.44,0.02691
+Markland|Q5|fixed,Markland / Etobicoke W,Q5,215000,fixed,0.3,0.0,0.005474
+Markland|Q5|flexible,Markland / Etobicoke W,Q5,215000,flexible,0.3,0.52,0.033626
+Mississauga|Q1|fixed,Mississauga / west GTA,Q1,24000,fixed,0.45,0.0,0.01984
+Mississauga|Q1|flexible,Mississauga / west GTA,Q1,24000,flexible,0.45,0.06,0.01216
+Mississauga|Q2|fixed,Mississauga / west GTA,Q2,49000,fixed,0.45,0.0,0.02912
+Mississauga|Q2|flexible,Mississauga / west GTA,Q2,49000,flexible,0.45,0.13,0.02688
+Mississauga|Q3|fixed,Mississauga / west GTA,Q3,79000,fixed,0.45,0.0,0.03168
+Mississauga|Q3|flexible,Mississauga / west GTA,Q3,79000,flexible,0.45,0.28,0.05632
+Mississauga|Q4|fixed,Mississauga / west GTA,Q4,120000,fixed,0.45,0.0,0.02552
+Mississauga|Q4|flexible,Mississauga / west GTA,Q4,120000,flexible,0.45,0.44,0.09048
+Mississauga|Q5|fixed,Mississauga / west GTA,Q5,215000,fixed,0.45,0.0,0.01512
+Mississauga|Q5|flexible,Mississauga / west GTA,Q5,215000,flexible,0.45,0.52,0.09288

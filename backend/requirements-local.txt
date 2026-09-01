@@ -1,0 +1,11 @@
+# Runtime dependencies only. Kept minimal because the Vercel Python bundle is
+# capped at 250 MB unzipped and this list is what gets installed there.
+#
+# scipy was listed here for the whole life of the project and is imported
+# nowhere. At 123 MB it was over half the bundle on its own. If something here
+# ever needs it, add it back deliberately and re-check the bundle size.
+fastapi>=0.110
+uvicorn[standard]>=0.27
+pydantic>=2.6
+numpy>=1.26
+pandas>=2.1

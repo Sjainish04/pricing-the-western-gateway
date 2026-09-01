@@ -1,0 +1,13 @@
+alternative,link_id,fraction,role,note
+drive_gardiner,gardiner_west,1.00,fixed,"Crosses the charging screenline."
+drive_gardiner,gardiner_east,1.00,fixed,"Shared downstream section, never charged."
+carpool_gardiner,gardiner_west,1.00,fixed,"Same path, HOV occupancy."
+carpool_gardiner,gardiner_east,1.00,fixed,""
+shift_offpeak,gardiner_west,1.00,fixed,"Same path, shoulder period."
+shift_offpeak,gardiner_east,1.00,fixed,""
+drive_lakeshore,lakeshore_west,1.00,fixed,"Bypasses the charging point on the City arterial."
+drive_lakeshore,gardiner_east,0.55,rejoin,"Rejoins the expressway past the Humber gantry. Fraction is cfg.rejoin_fraction."
+drive_lakeshore,lakeshore_east,0.45,continue,"Stays on Lake Shore into downtown. Fraction is 1 - cfg.rejoin_fraction."
+drive_queensway,queensway_west,1.00,fixed,"Secondary bypass."
+drive_queensway,gardiner_east,0.55,rejoin,"Rejoins past the gantry. Fraction is cfg.rejoin_fraction."
+drive_queensway,lakeshore_east,0.45,continue,"Fraction is 1 - cfg.rejoin_fraction."

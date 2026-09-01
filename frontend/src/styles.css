@@ -1,0 +1,591 @@
+/* Design tokens from the validated reference palette.
+   Light values on bare :root; dark redefined under both the OS media query and
+   the explicit theme stamp, so a toggle wins in either direction. */
+
+:root {
+  color-scheme: light;
+
+  --surface-1: #fcfcfb;
+  --page: #f9f9f7;
+  --text-primary: #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted: #898781;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --border: rgba(11, 11, 11, 0.1);
+
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --series-4: #eda100;
+  --series-5: #e87ba4;
+  --series-6: #008300;
+  --series-7: #4a3aa7;
+  --series-8: #e34948;
+
+  --seq-100: #cde2fb;
+  --seq-250: #86b6ef;
+  --seq-400: #3987e5;
+  --seq-550: #1c5cab;
+  --seq-700: #0d366b;
+  --diverge-mid: #f0efec;
+
+  /* Interface accent, deliberately separate from the sequential data ramp so
+     the theme can restyle chrome without repainting any encoded value. */
+  --accent-surface: #cde2fb;
+  --accent-ink: #0d366b;
+
+  --good: #0ca30c;
+  --warning: #fab219;
+  --serious: #ec835a;
+  --critical: #d03b3b;
+  --success-text: #006300;
+  --critical-text: #c0332f;
+
+  /* Findings. The study's whole value is its results, and until now every one
+     of them rendered as an undifferentiated <p>. These give a finding its own
+     surface so it reads as the conclusion rather than as more prose. Kept
+     separate from both the data ramp and the interface accent, so restyling a
+     callout cannot repaint an encoded value. */
+  --finding-surface: #f1f6fd;
+  --finding-edge: #2a78d6;
+  --finding-good-surface: #eef8ee;
+  --finding-bad-surface: #fdf1f1;
+
+  --radius: 10px;
+  --font: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --surface-1: #1a1a19;
+    --page: #0d0d0d;
+    --text-primary: #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted: #898781;
+    --grid: #2c2c2a;
+    --axis: #383835;
+    --border: rgba(255, 255, 255, 0.1);
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --series-3: #199e70;
+    --series-4: #c98500;
+    --series-5: #d55181;
+    --series-6: #008300;
+    --series-7: #9085e9;
+    --series-8: #e66767;
+    --diverge-mid: #383835;
+    --accent-surface: #16304f;
+    --accent-ink: #b7d3f6;
+    --success-text: #26c426;
+    --critical-text: #ff8a8a;
+    --finding-surface: #13202e;
+    --finding-edge: #3987e5;
+    --finding-good-surface: #10261a;
+    --finding-bad-surface: #2a1516;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --surface-1: #1a1a19;
+  --page: #0d0d0d;
+  --text-primary: #ffffff;
+  --text-secondary: #c3c2b7;
+  --text-muted: #898781;
+  --grid: #2c2c2a;
+  --axis: #383835;
+  --border: rgba(255, 255, 255, 0.1);
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --series-3: #199e70;
+  --series-4: #c98500;
+  --series-5: #d55181;
+  --series-6: #008300;
+  --series-7: #9085e9;
+  --series-8: #e66767;
+  --diverge-mid: #383835;
+  --accent-surface: #16304f;
+  --accent-ink: #b7d3f6;
+  --success-text: #26c426;
+  --critical-text: #ff8a8a;
+  --finding-surface: #13202e;
+  --finding-edge: #3987e5;
+  --finding-good-surface: #10261a;
+  --finding-bad-surface: #2a1516;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--text-primary);
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--series-1); }
+
+/* ---------------------------------------------------------------- layout */
+
+.shell { display: flex; min-height: 100vh; }
+
+.sidebar {
+  width: 244px;
+  flex: 0 0 244px;
+  background: var(--surface-1);
+  border-right: 1px solid var(--border);
+  padding: 20px 14px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.brand { font-size: 13px; font-weight: 650; letter-spacing: 0.02em; }
+.brand span { display: block; color: var(--text-muted); font-weight: 450; font-size: 11.5px; }
+
+.nav { margin-top: 22px; display: flex; flex-direction: column; gap: 2px; }
+.nav a {
+  display: flex; align-items: center; gap: 9px;
+  padding: 7px 10px; border-radius: 8px;
+  color: var(--text-secondary); text-decoration: none;
+  font-size: 13.5px;
+}
+.nav a:hover { background: var(--page); color: var(--text-primary); }
+.nav a.active { background: var(--accent-surface); color: var(--accent-ink); font-weight: 600; }
+.nav .glyph { width: 18px; text-align: center; font-size: 14px; }
+.nav-group { margin-top: 14px; font-size: 10.5px; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--text-muted); padding: 0 10px 4px; }
+
+.main { flex: 1 1 auto; min-width: 0; padding: 26px 30px 70px; max-width: 1320px; }
+
+.page-head { margin-bottom: 22px; }
+.page-head h1 { font-size: 25px; margin: 0 0 6px; letter-spacing: -0.01em; }
+.page-head p { margin: 0; color: var(--text-secondary); max-width: 78ch; }
+
+.panel {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  margin-bottom: 18px;
+  min-width: 0;
+}
+.panel > h2 { font-size: 15.5px; margin: 0 0 3px; }
+.panel > .sub { margin: 0 0 14px; color: var(--text-secondary); font-size: 13px; max-width: 88ch; }
+
+/* Bare 1fr resolves to minmax(auto,1fr), so a wide table stretches the whole
+   grid and the page scrolls sideways. minmax(0,1fr) keeps columns contained. */
+.grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr)); }
+.grid-2 { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr)); }
+
+/* ------------------------------------------------------------ stat tiles */
+
+.tile {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 13px 15px;
+  min-width: 0;
+}
+.tile .label { font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--text-muted); margin-bottom: 5px; }
+.tile .value { font-size: 25px; font-weight: 640; letter-spacing: -0.02em;
+  color: var(--text-primary); line-height: 1.15; }
+.tile .value.good { color: var(--success-text); }
+.tile .value.bad { color: var(--critical-text); }
+.tile .note { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
+
+/* ------------------------------------------------------------- findings */
+
+/* A result, as distinct from the prose explaining it. The left rule carries
+   the tone so the signal survives at a glance and in greyscale -- colour alone
+   would fail both a colourblind reader and a printed submission. */
+.finding {
+  background: var(--finding-surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--finding-edge);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 13px 16px;
+  margin: 14px 0 0;
+  font-size: 14.5px;
+  color: var(--text-primary);
+}
+.finding + .finding { margin-top: 10px; }
+.finding > :first-child { margin-top: 0; }
+.finding > :last-child { margin-bottom: 0; }
+.finding p { margin: 0 0 8px; }
+.finding p:last-child { margin-bottom: 0; }
+.finding .lede { font-size: 16px; line-height: 1.45; font-weight: 600;
+  letter-spacing: -0.01em; }
+.finding .aside { font-size: 13px; color: var(--text-secondary); }
+.finding.good { border-left-color: var(--good); background: var(--finding-good-surface); }
+.finding.bad { border-left-color: var(--critical); background: var(--finding-bad-surface); }
+
+/* A one-line label above a finding: what kind of claim this is. */
+.finding .kicker {
+  display: block; font-size: 10.5px; text-transform: uppercase;
+  letter-spacing: 0.08em; font-weight: 650; color: var(--text-muted);
+  margin-bottom: 5px;
+}
+
+/* --------------------------------------------------------------- tables */
+
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { padding: 7px 10px; text-align: right; border-bottom: 1px solid var(--grid);
+  white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; white-space: normal; min-width: 150px; }
+th { font-weight: 600; color: var(--text-secondary); font-size: 11.5px;
+  text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid var(--axis); }
+td { font-variant-numeric: tabular-nums; }
+tbody tr:hover { background: var(--page); }
+tr.highlight td { background: var(--accent-surface); color: var(--accent-ink); font-weight: 600; }
+
+/* --------------------------------------------------------------- controls */
+
+.controls { display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-end; margin-bottom: 4px; }
+.field { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.field label { font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.05em;
+  color: var(--text-muted); }
+.field select, .field input[type="number"] {
+  background: var(--page); color: var(--text-primary);
+  border: 1px solid var(--axis); border-radius: 7px; padding: 6px 9px;
+  font-family: var(--font); font-size: 13.5px; min-width: 130px;
+}
+.field input[type="range"] { width: 178px; accent-color: var(--series-1); }
+.field .readout { font-variant-numeric: tabular-nums; font-weight: 600; font-size: 13.5px; }
+.check { display: flex; align-items: center; gap: 7px; font-size: 13.5px;
+  color: var(--text-secondary); }
+.check input { accent-color: var(--series-1); }
+
+button {
+  background: var(--series-1); color: #fff; border: 0; border-radius: 7px;
+  padding: 8px 15px; font-family: var(--font); font-size: 13.5px; font-weight: 600;
+  cursor: pointer;
+}
+button:hover { filter: brightness(1.08); }
+button:disabled { opacity: 0.5; cursor: default; }
+button.ghost { background: transparent; color: var(--text-secondary);
+  border: 1px solid var(--axis); }
+
+/* ---------------------------------------------------------------- badges */
+
+.badge { display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px;
+  font-weight: 600; padding: 2px 8px; border-radius: 20px; white-space: nowrap; }
+.badge.pass { background: rgba(12, 163, 12, 0.14); color: var(--success-text); }
+.badge.fail { background: rgba(208, 59, 59, 0.14); color: var(--critical-text); }
+.badge.warn { background: rgba(250, 178, 25, 0.18); color: #8a5b00; }
+.badge.info { background: var(--accent-surface); color: var(--accent-ink); }
+:root[data-theme="dark"] .badge.warn { color: var(--warning); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .badge.warn { color: var(--warning); }
+}
+
+.tier { font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em; padding: 1px 6px;
+  border-radius: 4px; }
+.tier.PUBLISHED { background: rgba(12,163,12,0.14); color: var(--success-text); }
+.tier.DERIVED { background: var(--accent-surface); color: var(--accent-ink); }
+.tier.ESTIMATED { background: rgba(250,178,25,0.18); color: #8a5b00; }
+:root[data-theme="dark"] .tier.ESTIMATED { color: var(--warning); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .tier.ESTIMATED { color: var(--warning); }
+}
+
+/* ---------------------------------------------------------------- charts */
+
+.legend { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 9px; font-size: 12px;
+  color: var(--text-secondary); }
+.legend .key { display: inline-flex; align-items: center; gap: 6px; }
+.legend .swatch { width: 11px; height: 11px; border-radius: 3px; flex: 0 0 11px; }
+
+.chart-scroll { overflow-x: auto; }
+svg text { font-family: var(--font); }
+.tick { fill: var(--text-muted); font-size: 11px; }
+.axis-title { fill: var(--text-secondary); font-size: 11.5px; font-weight: 600; }
+.mark-label { fill: var(--text-secondary); font-size: 11px; font-variant-numeric: tabular-nums; }
+.gridline { stroke: var(--grid); stroke-width: 1; }
+.baseline { stroke: var(--axis); stroke-width: 1; }
+
+.tooltip {
+  position: fixed; pointer-events: none; z-index: 60;
+  background: var(--surface-1); border: 1px solid var(--axis);
+  border-radius: 8px; padding: 8px 11px; font-size: 12.5px;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.16); max-width: 280px;
+}
+.tooltip .tt-title { font-weight: 650; margin-bottom: 3px; }
+.tooltip .tt-row { display: flex; justify-content: space-between; gap: 14px;
+  color: var(--text-secondary); }
+.tooltip .tt-row b { color: var(--text-primary); font-variant-numeric: tabular-nums; }
+
+/* ------------------------------------------------------------------- misc */
+
+.note { font-size: 12.5px; color: var(--text-secondary); margin-top: 10px;
+  padding-left: 11px; border-left: 2px solid var(--grid); }
+.caveat { font-size: 12.5px; background: rgba(250,178,25,0.10);
+  border: 1px solid rgba(250,178,25,0.35); border-radius: 8px; padding: 10px 12px;
+  margin-top: 12px; color: var(--text-secondary); }
+.caveat b { color: var(--text-primary); }
+
+.loading { padding: 40px; text-align: center; color: var(--text-muted); }
+.error { padding: 16px; border-radius: 8px; background: rgba(208,59,59,0.10);
+  border: 1px solid rgba(208,59,59,0.3); color: var(--critical); font-size: 13.5px; }
+
+.map { height: 460px; border-radius: var(--radius); border: 1px solid var(--border); }
+.leaflet-container { background: var(--page); font-family: var(--font); }
+
+.pill-row { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 12px; }
+.pill { border: 1px solid var(--axis); background: var(--page); color: var(--text-secondary);
+  border-radius: 20px; padding: 4px 12px; font-size: 12.5px; cursor: pointer; }
+.pill.on { background: var(--series-1); border-color: var(--series-1); color: #fff;
+  font-weight: 600; }
+
+.kv { display: grid; grid-template-columns: minmax(0,auto) minmax(0,1fr); gap: 6px 16px;
+  font-size: 13.5px; }
+.kv dt { color: var(--text-muted); }
+.kv dd { margin: 0; font-weight: 550; }
+
+@media (max-width: 880px) {
+  .shell { flex-direction: column; }
+  .sidebar { width: 100%; flex: none; height: auto; position: static; }
+  .nav { flex-direction: row; flex-wrap: wrap; }
+  .main { padding: 18px 16px 50px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* ------------------------------------------------------------- 3D map */
+
+.map3d {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  background: var(--page);
+}
+
+.map-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 10px;
+}
+.map-toolbar button { padding: 5px 12px; font-size: 12.5px; }
+
+/* MapLibre paints its own light chrome; keep it legible in dark mode without
+   inverting the basemap itself, which would wreck the validated link colours. */
+.maplibregl-ctrl-group { border-radius: 8px !important; }
+.maplibregl-popup-content {
+  font-family: var(--font);
+  font-size: 12.5px;
+  border-radius: 8px;
+  padding: 9px 12px;
+  color: #0b0b0b;
+}
+.maplibregl-ctrl-attrib { font-size: 10.5px; }
+
+.map3d-wrap { position: relative; }
+.map3d-notice {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 26px 30px;
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--surface-1) 94%, transparent);
+  border: 1px solid var(--border);
+  font-size: 13.5px;
+  color: var(--text-secondary);
+}
+.map3d-notice b { color: var(--text-primary); font-size: 14.5px; }
+.map3d-notice p { margin: 0; max-width: 62ch; }
+.map3d-notice .muted { color: var(--text-muted); font-size: 12.5px; }
+
+/* =================================================================
+   Presentation layer
+   Depth and emphasis, without touching the chart palette: the series
+   colours stay exactly as validated, and nothing below encodes data.
+   ================================================================= */
+
+:root {
+  --shadow-sm: 0 1px 2px rgba(11,11,11,0.04), 0 2px 8px rgba(11,11,11,0.04);
+  --shadow-md: 0 2px 6px rgba(11,11,11,0.06), 0 12px 32px rgba(11,11,11,0.07);
+  --ink-grad: linear-gradient(135deg, #0d366b 0%, #2a78d6 52%, #1baf7a 100%);
+}
+:root[data-theme="dark"] {
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.3);
+  --shadow-md: 0 2px 6px rgba(0,0,0,0.5), 0 12px 32px rgba(0,0,0,0.45);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.3);
+    --shadow-md: 0 2px 6px rgba(0,0,0,0.5), 0 12px 32px rgba(0,0,0,0.45);
+  }
+}
+
+.panel { box-shadow: var(--shadow-sm); }
+.tile {
+  box-shadow: var(--shadow-sm);
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+.tile:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+/* Tone as structure, not only as text colour, so the signal survives greyscale
+   printing and a colourblind reader -- and so it cannot be silently overridden
+   by whatever paints the number. */
+.tile.tone-good, .tile.tone-bad { position: relative; overflow: hidden; }
+.tile.tone-good::before, .tile.tone-bad::before {
+  content: ''; position: absolute; inset: 0 0 auto 0; height: 3px;
+}
+.tile.tone-good::before { background: var(--good); }
+.tile.tone-bad::before { background: var(--critical); }
+
+/* --- hero ------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  border-radius: 16px;
+  padding: 34px 34px 30px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  background: var(--ink-grad);
+  color: #fff;
+  box-shadow: var(--shadow-md);
+}
+/* A faint street-grid texture: pure decoration, carries no data. */
+.hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(115deg, rgba(255,255,255,.07) 0 1px, transparent 1px 46px),
+    repeating-linear-gradient(25deg, rgba(255,255,255,.05) 0 1px, transparent 1px 62px);
+  pointer-events: none;
+}
+.hero > * { position: relative; z-index: 1; }
+.hero .eyebrow {
+  font-size: 11.5px; letter-spacing: 0.16em; text-transform: uppercase;
+  opacity: 0.82; margin-bottom: 10px;
+}
+.hero h1 {
+  font-size: clamp(26px, 3.4vw, 40px); line-height: 1.12; margin: 0 0 12px;
+  letter-spacing: -0.025em; font-weight: 680; max-width: 22ch;
+}
+.hero p { margin: 0; max-width: 66ch; opacity: 0.93; font-size: 15px; }
+.hero-figures {
+  display: flex; flex-wrap: wrap; gap: 30px; margin-top: 24px;
+  padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.22);
+}
+.hero-figures .fig .n {
+  font-size: 27px; font-weight: 680; letter-spacing: -0.02em; line-height: 1.1;
+}
+.hero-figures .fig .l {
+  font-size: 11.5px; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.07em;
+  margin-top: 3px;
+}
+
+/* --- nav -------------------------------------------------------- */
+
+.nav a { position: relative; transition: background 120ms ease, color 120ms ease; }
+.nav a.active::before {
+  content: ''; position: absolute; left: -14px; top: 6px; bottom: 6px;
+  width: 3px; border-radius: 0 3px 3px 0; background: var(--series-1);
+}
+
+/* --- map -------------------------------------------------------- */
+
+.map3d { box-shadow: var(--shadow-sm); }
+.map3d-caption {
+  position: absolute; left: 16px; right: 16px; bottom: 16px;
+  padding: 12px 16px; border-radius: 10px;
+  background: rgba(11,11,11,0.76); color: #fff;
+  font-size: 14px; font-weight: 550; letter-spacing: -0.01em;
+  backdrop-filter: blur(6px);
+  animation: caption-in 320ms ease both;
+}
+@keyframes caption-in { from { opacity: 0; transform: translateY(8px) } to { opacity: 1 } }
+.map-toolbar button:not(.ghost) { box-shadow: var(--shadow-sm); }
+
+@media (prefers-reduced-motion: reduce) {
+  .tile:hover { transform: none; }
+  .map3d-caption { animation: none; }
+}
+
+/* --- map chooser ------------------------------------------------ */
+
+.map-chooser {
+  display: flex; flex-wrap: wrap; gap: 8px 18px;
+  align-items: center; margin-bottom: 10px;
+}
+.map-chooser .pill-row { gap: 6px; }
+
+/* --- theme switch ----------------------------------------------- */
+
+.theme-switch {
+  display: flex; gap: 3px; margin-top: 18px; padding: 3px;
+  background: var(--page); border: 1px solid var(--border); border-radius: 9px;
+}
+.theme-switch button {
+  flex: 1 1 0; min-width: 0;
+  background: transparent; color: var(--text-secondary);
+  border: 0; border-radius: 7px; padding: 5px 4px;
+  font-size: 11.5px; font-weight: 600; cursor: pointer;
+}
+.theme-switch button:hover { color: var(--text-primary); }
+.theme-switch button.on {
+  background: var(--surface-1); color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Dark-mode corrections for third-party map chrome, which ships light. */
+:root[data-theme="dark"] .maplibregl-popup-content,
+:root[data-theme="dark"] .leaflet-popup-content-wrapper,
+:root[data-theme="dark"] .leaflet-popup-tip {
+  background: #23231f; color: #f2f1ec;
+}
+:root[data-theme="dark"] .maplibregl-ctrl-group,
+:root[data-theme="dark"] .leaflet-bar a {
+  background: #23231f; color: #f2f1ec; border-color: #3a3a35;
+}
+:root[data-theme="dark"] .leaflet-bar a { color: #f2f1ec; }
+:root[data-theme="dark"] .maplibregl-ctrl-attrib,
+:root[data-theme="dark"] .leaflet-control-attribution {
+  background: rgba(26,26,25,0.82) !important; color: #b8b6ae;
+}
+:root[data-theme="dark"] .maplibregl-ctrl-attrib a,
+:root[data-theme="dark"] .leaflet-control-attribution a { color: #86b6ef; }
+:root[data-theme="dark"] .leaflet-control-scale-line {
+  background: rgba(26,26,25,0.8); color: #f2f1ec; border-color: #56564f;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .maplibregl-popup-content,
+  :root:not([data-theme="light"]) .leaflet-popup-content-wrapper,
+  :root:not([data-theme="light"]) .leaflet-popup-tip {
+    background: #23231f; color: #f2f1ec;
+  }
+  :root:not([data-theme="light"]) .maplibregl-ctrl-group,
+  :root:not([data-theme="light"]) .leaflet-bar a {
+    background: #23231f; color: #f2f1ec; border-color: #3a3a35;
+  }
+  :root:not([data-theme="light"]) .maplibregl-ctrl-attrib,
+  :root:not([data-theme="light"]) .leaflet-control-attribution {
+    background: rgba(26,26,25,0.82) !important; color: #b8b6ae;
+  }
+}
+
+/* A yardstick, not a series: values shown as labelled text rather than as
+   plotted marks, because plotting them would imply they are comparators. */
+.scale-strip {
+  display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 8px;
+  font-variant-numeric: tabular-nums;
+}
+.scale-strip span { color: var(--text-secondary); font-size: 12.5px; }
+.scale-strip b { color: var(--text-primary); }
